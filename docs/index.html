@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mathematics from First Principles</title>
+  <meta name="description" content="A journey through the axioms of mathematics, watching patterns emerge from sets to categories.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Progress bar -->
+<div style="position:fixed;top:0;left:0;right:0;height:3px;z-index:999;background:transparent;">
+  <div id="progress-bar" style="height:100%;width:0;background:var(--text-muted);transition:width 0.1s;opacity:0.5;"></div>
+</div>
+
+<!-- Mobile nav toggle -->
+<button id="nav-toggle" class="nav-hamburger" aria-label="Open navigation" aria-expanded="false">&#9776;</button>
+
+<!-- Side Navigation -->
+<nav id="nav" class="side-nav" aria-label="Section navigation">
+  <div class="nav-top">
+    <span class="nav-title">Axioms</span>
+    <button id="theme-toggle" aria-label="Toggle dark mode">&#9790;</button>
+  </div>
+  <ol class="nav-list">
+    <li data-target="sets" data-nav-color="sets"><a href="#sets">01 &middot; Sets</a></li>
+    <li data-target="natural-numbers" data-nav-color="naturals"><a href="#natural-numbers">02 &middot; Natural Numbers</a></li>
+    <li data-target="meta-1" class="meta-nav"><a href="#meta-1">&#9670; Patterns I</a></li>
+    <li data-target="groups" data-nav-color="groups"><a href="#groups">03 &middot; Groups</a></li>
+    <li data-target="meta-2" class="meta-nav"><a href="#meta-2">&#9670; Patterns II</a></li>
+    <li data-target="order" data-nav-color="order"><a href="#order">04 &middot; Order</a></li>
+    <li data-target="meta-3" class="meta-nav"><a href="#meta-3">&#9670; Patterns III</a></li>
+    <li data-target="topology" data-nav-color="topology"><a href="#topology">05 &middot; Topology</a></li>
+    <li data-target="meta-4" class="meta-nav"><a href="#meta-4">&#9670; Patterns IV</a></li>
+    <li data-target="fields" data-nav-color="fields"><a href="#fields">06 &middot; Fields &amp; Reals</a></li>
+    <li data-target="meta-5" class="meta-nav"><a href="#meta-5">&#9670; Patterns V</a></li>
+    <li data-target="vector-spaces" data-nav-color="vectors"><a href="#vector-spaces">07 &middot; Vector Spaces</a></li>
+    <li data-target="meta-6" class="meta-nav"><a href="#meta-6">&#9670; Patterns VI</a></li>
+    <li data-target="metric-spaces" data-nav-color="metric"><a href="#metric-spaces">08 &middot; Metric Spaces</a></li>
+    <li data-target="meta-7" class="meta-nav"><a href="#meta-7">&#9670; Patterns VII</a></li>
+    <li data-target="probability" data-nav-color="probability"><a href="#probability">09 &middot; Probability</a></li>
+    <li data-target="meta-8" class="meta-nav"><a href="#meta-8">&#9670; Patterns VIII</a></li>
+    <li data-target="category-theory" data-nav-color="category"><a href="#category-theory">10 &middot; Category Theory</a></li>
+    <li data-target="meta-9" class="meta-nav"><a href="#meta-9">&#9670; Grand Synthesis</a></li>
+    <li data-target="new-math" data-nav-color="finale" class="finale-nav"><a href="#new-math">&#9733; New Mathematics</a></li>
+  </ol>
+</nav>
+
+<main>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<header class="hero" id="top">
+  <h1>Mathematics from First Principles</h1>
+  <p class="subtitle">A journey through axiom systems, from sets to categories, watching patterns emerge &mdash; then using those patterns to invent something new.</p>
+</header>
+
+<!-- ============================================================
+     01. SETS
+     ============================================================ -->
+<section class="math-section" id="sets" data-color="sets">
+  <div class="section-header">
+    <span class="section-number">01</span>
+    <h2>Sets</h2>
+  </div>
+
+  <p class="one-liner">A set is a collection of distinct objects, considered as an object in its own right.</p>
+
+  <blockquote class="uncomfortable-question">
+    You have used sets your entire mathematical life. Can you name a single one of the rules that lets you form one? When you write {x &isin; &#8477; : x &gt; 0}, what law of the universe are you invoking &mdash; and what would happen if that law did not exist?
+  </blockquote>
+
+  <div class="axioms-block">
+    <h3>The Axioms (Zermelo-Fraenkel with Choice &mdash; ZFC)</h3>
+    <ol class="axiom-list">
+      <li class="axiom"><span class="axiom-name">Extensionality:</span> Two sets are equal if and only if they have the same elements.</li>
+      <li class="axiom"><span class="axiom-name">Pairing:</span> For any two objects, there exists a set containing exactly those two.</li>
+      <li class="axiom"><span class="axiom-name">Union:</span> For any collection of sets, there exists a set that merges all their elements.</li>
+      <li class="axiom"><span class="axiom-name">Power Set:</span> For any set, there exists the set of all its subsets.</li>
+      <li class="axiom"><span class="axiom-name">Separation:</span> Given a set and a property, you can form the subset of elements satisfying that property.</li>
+      <li class="axiom"><span class="axiom-name">Infinity:</span> There exists at least one infinite set.</li>
+      <li class="axiom"><span class="axiom-name">Replacement:</span> If you apply a rule to every element of a set, the results form a set.</li>
+      <li class="axiom"><span class="axiom-name">Foundation:</span> No set contains itself. Membership chains always bottom out.</li>
+      <li class="axiom"><span class="axiom-name">Choice:</span> Given any collection of non-empty bins, you can pick one item from each.</li>
+    </ol>
+  </div>
+
+  <div class="explanation">
+    <p>Think of a set like a bag with a perfectly transparent side. You can see exactly what is inside, and two bags are the same bag if they hold the same things &mdash; it does not matter what the bag is made of or what label is on it. That is the first axiom, <em>Extensionality</em>, and it establishes a radical idea: a set <em>is</em> its contents, nothing more. There is no hidden identity. This is unlike most real-world objects. Two copies of the same novel have the same words, but they are still two separate physical books. Sets do not work that way. Same contents, same set. Period.</p>
+
+    <p>The next several axioms are construction tools. They tell you how to <em>build</em> new sets from old ones: pair two things together (Pairing), merge collections (Union), gather all subsets (Power Set), filter by a property (Separation), or transform every element (Replacement). Notice what is <em>not</em> here: there is no axiom that says &ldquo;any collection you can describe is a set.&rdquo; That unrestricted rule, called naive comprehension, leads to paradoxes &mdash; the most famous being Russell&rsquo;s paradox, where the &ldquo;set of all sets that do not contain themselves&rdquo; cannot consistently exist. The axioms are deliberately careful about what collections are allowed. Each construction tool is a controlled permission slip.</p>
+
+    <p>The last three axioms do special work. <em>Infinity</em> declares that at least one infinite set exists &mdash; without it, you could only ever build finite collections, and most of mathematics would collapse. <em>Foundation</em> prevents bizarre loops where a set could contain itself, keeping the universe of sets well-organized in layers. And <em>Choice</em>, the most controversial, says you can always select one item from each bin in an infinite warehouse, even when there is no explicit rule for making the selection. Choice sounds innocent, but it has startling consequences: it implies that every set can be well-ordered (lined up in a queue where every non-empty sub-queue has a first element) and it enables the Banach-Tarski paradox, where a solid ball can be decomposed and reassembled into two copies of itself. Many mathematicians accept Choice pragmatically; some work without it to see what still holds.</p>
+  </div>
+
+  <div class="visualization-container" id="viz-sets">
+    <p class="viz-label">Interactive: Venn Diagram</p>
+    <div class="viz-canvas-wrap" style="height:360px;"></div>
+    <div class="viz-controls">
+      <button class="active" data-mode="union">A &cup; B</button>
+      <button data-mode="intersection">A &cap; B</button>
+      <button data-mode="a-only">A &setminus; B</button>
+      <button data-mode="b-only">B only</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     02. NATURAL NUMBERS
+     ============================================================ -->
+<section class="math-section" id="natural-numbers" data-color="naturals">
+  <div class="section-header">
+    <span class="section-number">02</span>
+    <h2>Natural Numbers</h2>
+  </div>
+
+  <p class="one-liner">The natural numbers are the counting numbers &mdash; 0, 1, 2, 3, &hellip; &mdash; generated from nothing by a single operation.</p>
+
+  <blockquote class="uncomfortable-question">
+    You know that 2 + 3 = 5. But can you define what addition <em>is</em> without using addition? The Peano axioms build all of arithmetic from a single operation &mdash; successor &mdash; that only adds one. How do you get from &ldquo;add one&rdquo; to &ldquo;add three&rdquo;?
+  </blockquote>
+
+  <div class="axioms-block">
+    <h3>The Axioms (Peano, 1889)</h3>
+    <ol class="axiom-list">
+      <li class="axiom"><span class="axiom-name">Zero Exists:</span> 0 is a natural number.</li>
+      <li class="axiom"><span class="axiom-name">Successor:</span> Every natural number n has a successor S(n), which is also a natural number.</li>
+      <li class="axiom"><span class="axiom-name">Zero Is Not a Successor:</span> There is no natural number whose successor is 0.</li>
+      <li class="axiom"><span class="axiom-name">Injectivity:</span> If S(m) = S(n), then m = n. (Different numbers have different successors.)</li>
+      <li class="axiom"><span class="axiom-name">Induction:</span> If a property holds for 0, and whenever it holds for n it also holds for S(n), then it holds for every natural number.</li>
+    </ol>
+  </div>
+
+  <div class="explanation">
+    <p>The Peano axioms are astonishingly minimal. They do not mention addition. They do not mention multiplication. They do not even mention the number 2. All they give you is a starting point (zero), a way to take one step forward (the successor function), and a promise that stepping forward never loops back, never collapses, and never skips. The number 1 is defined as S(0) &mdash; the successor of zero. The number 2 is S(S(0)). The number 37 is the successor function applied thirty-seven times to zero. Every natural number is just a chain of successor applications, like counting notches on a stick.</p>
+
+    <p>Addition is then <em>defined</em>, not assumed. To add m + n, you apply successor n times starting from m. Formally: m + 0 = m (adding zero does nothing) and m + S(n) = S(m + n) (adding the successor of n means taking one more step). So 2 + 3 means: start at 2, apply successor three times &mdash; S(S(S(2))) = S(S(3)) = S(4) = 5. Multiplication is built on top of addition the same way: m &times; 0 = 0 and m &times; S(n) = (m &times; n) + m. This recursive bootstrapping &mdash; defining complex operations from simpler ones &mdash; is characteristic of the natural numbers. Contrast this with the real numbers, where addition and multiplication are assumed outright as axioms. The naturals are <em>constructed</em>; the reals are <em>declared</em>.</p>
+
+    <p>The fifth axiom, <em>induction</em>, is the one that does the heavy lifting. It is the mathematical equivalent of dominoes: if the first domino falls (the property holds for 0) and every domino knocks down the next (the property passes from n to S(n)), then all the dominoes fall (the property holds for every natural number). Without induction, you could prove things about 0, 1, 2, and any specific number you like, but you could never make a universal claim about all natural numbers at once. Induction is what makes the natural numbers feel infinite &mdash; it lets you reach beyond any finite horizon. The opposite concept would be a system with no induction principle, where you can only make finitely many verifications &mdash; and indeed, some alternative axiom systems weaken or remove induction to study what happens without it.</p>
+  </div>
+
+  <div class="visualization-container" id="viz-naturals">
+    <p class="viz-label">Interactive: The Successor Machine</p>
+    <div class="viz-canvas-wrap" style="height:280px;"></div>
+    <div class="viz-controls">
+      <button data-action="successor">Apply S( )</button>
+      <button data-action="reset">Reset to 0</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     META-AXIOM PATTERNS I
+     ============================================================ -->
+<section class="meta-section" id="meta-1">
+  <div class="meta-header">
+    <h2>Meta-Axiom Patterns <span class="meta-count">(I of IX)</span></h2>
+    <p class="meta-subtitle">We have seen two systems. What do they share?</p>
+  </div>
+  <div class="systems-seen">
+    <span class="sys-tag seen">Sets</span>
+    <span class="sys-tag seen">Naturals</span>
+    <span class="sys-tag">Groups</span>
+    <span class="sys-tag">Order</span>
+    <span class="sys-tag">Topology</span>
+    <span class="sys-tag">Fields</span>
+    <span class="sys-tag">Vectors</span>
+    <span class="sys-tag">Metrics</span>
+    <span class="sys-tag">Probability</span>
+    <span class="sys-tag">Categories</span>
+  </div>
+  <div class="meta-content">
+    <h3>Observation: Seed and Generator</h3>
+    <p>Both systems begin by declaring that something exists. Sets have the Axiom of Infinity: an infinite set is out there. The Peano axioms have Axiom 1: zero exists. Neither system asks you to prove that its starting object is real. It <em>declares</em> the existence. Then both systems provide a machine for building new things from old: the set axioms give you Pairing, Union, Power Set, and Separation as construction tools; the Peano axioms give you the successor function. In both cases, the axioms never describe the objects themselves &mdash; they describe what you can <em>do</em> with them.</p>
+
+    <h3>Observation: The Guardian Axiom</h3>
+    <p>Both systems include at least one axiom whose job is to prevent disaster. In sets, Foundation forbids circular membership (no set can contain itself). In the naturals, Axiom 3 says zero is not a successor (the chain never loops back). These are <em>negative</em> axioms &mdash; they do not create anything; they forbid a specific pathology. Remove them and the system does not just get bigger; it gets paradoxical or degenerate.</p>
+
+    <h3>Observation: The Reach Axiom</h3>
+    <p>Both systems have an axiom that extends the system&rsquo;s reach beyond what the other axioms can build step-by-step. In sets, the Axiom of Infinity conjures an infinite set into existence that you could never build by finitely many applications of Pairing and Union. In the naturals, the Induction axiom lets you make claims about all natural numbers simultaneously, leaping past any finite verification. These axioms are qualitatively different from the others &mdash; they provide leverage over infinity.</p>
+
+    <div class="meta-axiom-box">
+      <span class="meta-axiom-label">Proposed Meta-Axiom M1</span>
+      <p>Every axiom system contains at least one existence declaration (a seed) and at least one construction rule (a generator).</p>
+    </div>
+    <div class="meta-axiom-box">
+      <span class="meta-axiom-label">Proposed Meta-Axiom M2</span>
+      <p>Every axiom system contains at least one negative axiom whose purpose is to prevent degeneracy or paradox.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     03. GROUPS
+     ============================================================ -->
+<section class="math-section" id="groups" data-color="groups">
+  <div class="section-header">
+    <span class="section-number">03</span>
+    <h2>Groups</h2>
+  </div>
+
+  <p class="one-liner">A group is a set with a single operation that can combine any two elements, undo any combination, and does not care about parentheses.</p>
+
+  <blockquote class="uncomfortable-question">
+    You learned in linear algebra that matrix multiplication is not commutative &mdash; AB &ne; BA. Did that feel like a defect, something that <em>should</em> have been commutative but was not? What if non-commutativity is not a defect but a feature &mdash; a structural choice that the axioms deliberately leave open?
+  </blockquote>
+
+  <div class="axioms-block">
+    <h3>The Axioms</h3>
+    <ol class="axiom-list">
+      <li class="axiom"><span class="axiom-name">Closure:</span> For any two elements a and b in the group, a &middot; b is also in the group.</li>
+      <li class="axiom"><span class="axiom-name">Associativity:</span> (a &middot; b) &middot; c = a &middot; (b &middot; c) for all elements.</li>
+      <li class="axiom"><span class="axiom-name">Identity:</span> There exists an element e such that e &middot; a = a &middot; e = a for every element a.</li>
+      <li class="axiom"><span class="axiom-name">Inverse:</span> For every element a, there exists an element a&supmin;&sup1; such that a &middot; a&supmin;&sup1; = a&supmin;&sup1; &middot; a = e.</li>
+    </ol>
+  </div>
+
+  <div class="explanation">
+    <p>Where sets and natural numbers are about <em>building</em> objects, a group is about <em>doing</em> things and <em>undoing</em> them. The operation (written here as &middot; but it could be addition, multiplication, composition, rotation, or anything else) takes any two elements and produces a third. Closure means you never leave the group by combining things. Associativity means you can regroup parentheses freely: it does not matter whether you do (a &middot; b) first and then combine with c, or do (b &middot; c) first and then combine with a. The result is the same. This is <em>not</em> the same as commutativity, which says a &middot; b = b &middot; a (the <em>order</em> does not matter). Associativity is about <em>grouping</em>; commutativity is about <em>ordering</em>. Groups do not require commutativity. When they have it, they are called abelian groups (named after Niels Henrik Abel). When they do not, the non-commutativity encodes meaningful structure &mdash; like how rotating an object and then flipping it gives a different result than flipping first and then rotating.</p>
+
+    <p>The identity element is the &ldquo;do nothing&rdquo; operation. It is the mathematical equivalent of a pause button: combine anything with the identity, and you get back what you started with. Zero is the identity for addition (5 + 0 = 5). One is the identity for multiplication (5 &times; 1 = 5). The identity matrix is the identity for matrix multiplication. The concept opposite to identity is <em>annihilation</em> &mdash; an element that destroys information (like multiplying by zero). Groups have identities but specifically exclude annihilators, because every operation must be reversible. That is what the inverse axiom guarantees: for every action, there is an undo button. If you rotate 90 degrees clockwise, you can rotate 90 degrees counterclockwise. The integers form a group under addition because every number has a negative. The natural numbers do <em>not</em> form a group under addition because 3 has no &ldquo;negative 3&rdquo; in the naturals &mdash; there is no way to undo adding 3.</p>
+
+    <p>This is a watershed moment in our tour. Sets and natural numbers are one-directional: you build things, you count forward, you cannot undo. Groups are the first system where every operation is reversible. The symmetry group of a square contains every rotation and reflection of the square &mdash; eight operations total &mdash; and every one of them can be undone by another operation in the same group. Contrast this with a semigroup, which has closure and associativity but no identity or inverse. A semigroup is like a one-way street: you can move forward but you cannot go back. A monoid adds an identity (you can stand still) but still no inverse (you still cannot go back). A group adds the inverse and achieves full reversibility. This hierarchy &mdash; magma, semigroup, monoid, group &mdash; reveals that each axiom is a specific structural commitment, and adding or removing one changes the character of the entire system.</p>
+  </div>
+
+  <div class="visualization-container" id="viz-groups">
+    <p class="viz-label">Interactive: Cayley Table Explorer</p>
+    <div class="viz-canvas-wrap" style="min-height:260px;"></div>
+    <div class="viz-controls">
+      <select>
+        <option value="Z3">Z/3Z (mod 3)</option>
+        <option value="Z4">Z/4Z (mod 4)</option>
+        <option value="Klein">Klein four-group</option>
+        <option value="S3">S&#8323; (symmetric group)</option>
+      </select>
+    </div>
+    <div class="viz-info">Hover over cells to see operations</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     META-AXIOM PATTERNS II
+     ============================================================ -->
+<section class="meta-section" id="meta-2">
+  <div class="meta-header">
+    <h2>Meta-Axiom Patterns <span class="meta-count">(II of IX)</span></h2>
+    <p class="meta-subtitle">Groups introduced something new: reversibility.</p>
+  </div>
+  <div class="systems-seen">
+    <span class="sys-tag seen">Sets</span>
+    <span class="sys-tag seen">Naturals</span>
+    <span class="sys-tag seen">Groups</span>
+    <span class="sys-tag">Order</span>
+    <span class="sys-tag">Topology</span>
+    <span class="sys-tag">Fields</span>
+    <span class="sys-tag">Vectors</span>
+    <span class="sys-tag">Metrics</span>
+    <span class="sys-tag">Probability</span>
+    <span class="sys-tag">Categories</span>
+  </div>
+  <div class="meta-content">
+    <h3>A Fork in the Road</h3>
+    <p>We now have two kinds of systems: <em>constructive</em> systems (sets, naturals) that build outward, and <em>operational</em> systems (groups) that constrain inward. Sets and naturals say &ldquo;here is what you can build.&rdquo; Groups say &ldquo;here is what your operation must satisfy.&rdquo; The axioms of sets and naturals are mostly permissions. The axioms of groups are mostly requirements. This is a fundamental split, and every system we encounter going forward will lean one way or the other.</p>
+
+    <h3>The Emergence of Symmetry</h3>
+    <p>The inverse axiom is the first axiom we have seen that introduces a concept of <em>symmetry within the system itself</em>. For every element, there is a mirror element. For every action, an equal and opposite action. This structural symmetry &mdash; not geometric symmetry, but algebraic symmetry &mdash; is something neither sets nor naturals possess. In the naturals, 3 exists but -3 does not. In a group, every element is paired with a partner. This pairing is a new kind of axiom: not an existence declaration, not a construction rule, not a guardian &mdash; it is a <em>symmetry requirement</em>.</p>
+
+    <h3>Associativity: More Than It Appears</h3>
+    <p>Associativity showed up for the first time and it looks boring. But consider what it <em>does</em>: it means that a sequence of operations has a well-defined result regardless of how you chunk it. Without associativity, the expression a &middot; b &middot; c &middot; d is ambiguous &mdash; you need to specify the full parenthesization. With it, you can just write the sequence and know the answer is unique. Associativity is secretly a statement about <em>paths</em>: it says all paths through a computation lead to the same place. Watch for this idea &mdash; we will see it again.</p>
+
+    <div class="meta-axiom-box">
+      <span class="meta-axiom-label">Proposed Meta-Axiom M3</span>
+      <p>Axiom systems split into constructive (permissions to build) and operational (requirements to satisfy). Rich systems combine both.</p>
+    </div>
+    <div class="meta-axiom-box">
+      <span class="meta-axiom-label">Proposed Meta-Axiom M4</span>
+      <p>Some axioms establish internal symmetry &mdash; pairing every element or operation with a mirror counterpart.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     04. ORDER
+     ============================================================ -->
+<section class="math-section" id="order" data-color="order">
+  <div class="section-header">
+    <span class="section-number">04</span>
+    <h2>Order</h2>
+  </div>
+
+  <p class="one-liner">A partial order is a way of saying &ldquo;this one comes before that one&rdquo; among elements of a set, without requiring that every pair be comparable.</p>
+
+  <blockquote class="uncomfortable-question">
+    You know that 3 &lt; 5 and 5 &lt; 7 means 3 &lt; 7. That feels obvious. But can you compare a cup of coffee with the color blue? Not all things are ordered. What makes numbers special &mdash; and when you use &ldquo;less than,&rdquo; are you using an axiom or an intuition?
+  </blockquote>
+
+  <div class="axioms-block">
+    <h3>The Axioms (Partial Order)</h3>
+    <ol class="axiom-list">
+      <li class="axiom"><span class="axiom-name">Reflexivity:</span> a &le; a for every element a. (Everything is comparable to itself.)</li>
+      <li class="axiom"><span class="axiom-name">Antisymmetry:</span> If a &le; b and b &le; a, then a = b. (No two distinct elements can both precede each other.)</li>
+      <li class="axiom"><span class="axiom-name">Transitivity:</span> If a &le; b and b &le; c, then a &le; c. (Precedence chains extend.)</li>
+    </ol>
+    <p style="margin-top:1rem;font-family:var(--font-axiom);font-size:0.88rem;color:var(--text-muted);">Adding a fourth axiom &mdash; <strong>Totality:</strong> for any a and b, either a &le; b or b &le; a &mdash; upgrades this to a <em>total order</em>.</p>
+  </div>
+
+  <div class="explanation">
+    <p>Order theory is a sharp left turn from everything before it. Sets were about membership. Natural numbers were about counting. Groups were about operations. Order is about <em>relationships</em>. The axioms of a partial order say nothing about what the elements are or what you can do with them &mdash; they only describe how elements <em>relate</em> to each other via a single binary relation, &ldquo;less than or equal to.&rdquo; That relation must be reflexive (you are at least as big as yourself), antisymmetric (if two things are mutually at least as big, they are the same thing), and transitive (chains of comparison extend). That is it. Three axioms, all about a single relationship.</p>
+
+    <p>The crucial distinction is between <em>partial</em> and <em>total</em> orders. In a total order, every pair of elements is comparable: one must come before the other. The usual ordering of numbers (1, 2, 3, ...) is a total order. But in a partial order, some elements are simply incomparable &mdash; neither one comes before the other. Think of the divisibility relation on whole numbers: 6 is divisible by 2, and 6 is divisible by 3, so both 2 and 3 &ldquo;come before&rdquo; 6. But 2 does not divide 3, and 3 does not divide 2 &mdash; they are incomparable. A partial order is like a family tree where some cousins cannot be ranked relative to each other. A total order is like a queue where everyone has an exact position. The totality axiom is what converts the wider, richer partial order into the narrower, more constrained total order.</p>
+
+    <p>Transitivity &mdash; the third axiom &mdash; deserves special attention because it will keep showing up. It is the axiom that makes chains work. Without transitivity, knowing that a &le; b and b &le; c tells you nothing about the relationship between a and c. With it, you can build arguments link by link. This is structurally the same idea as associativity in groups: both ensure that sequences of relationships or operations compose sensibly. One more concept: a <em>well-order</em> is a total order where every non-empty subset has a smallest element. The natural numbers are well-ordered under the usual less-than. The integers are <em>not</em> well-ordered, because the set of all negative integers has no smallest element. Well-ordering is surprisingly powerful; the statement &ldquo;every set can be well-ordered&rdquo; turns out to be equivalent to the Axiom of Choice from set theory.</p>
+  </div>
+
+  <div class="visualization-container" id="viz-order">
+    <p class="viz-label">Interactive: Hasse Diagram</p>
+    <div class="viz-canvas-wrap" style="height:380px;"></div>
+    <div class="viz-controls">
+      <button class="active" data-mode="partial">Partial Order (divisibility)</button>
+      <button data-mode="total">Total Order (1 &lt; 2 &lt; &hellip;)</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     META-AXIOM PATTERNS III
+     ============================================================ -->
+<section class="meta-section" id="meta-3">
+  <div class="meta-header">
+    <h2>Meta-Axiom Patterns <span class="meta-count">(III of IX)</span></h2>
+    <p class="meta-subtitle">Four systems. Transitivity is everywhere.</p>
+  </div>
+  <div class="systems-seen">
+    <span class="sys-tag seen">Sets</span>
+    <span class="sys-tag seen">Naturals</span>
+    <span class="sys-tag seen">Groups</span>
+    <span class="sys-tag seen">Order</span>
+    <span class="sys-tag">Topology</span>
+    <span class="sys-tag">Fields</span>
+    <span class="sys-tag">Vectors</span>
+    <span class="sys-tag">Metrics</span>
+    <span class="sys-tag">Probability</span>
+    <span class="sys-tag">Categories</span>
+  </div>
+  <div class="meta-content">
+    <h3>The Transitivity Family</h3>
+    <p>Transitivity appeared explicitly as an axiom of order. But look backward: associativity in groups is a sibling. Both say &ldquo;chains compose.&rdquo; Associativity says (a &middot; b) &middot; c = a &middot; (b &middot; c) &mdash; operations chain without ambiguity. Transitivity says a &le; b and b &le; c implies a &le; c &mdash; relations chain without gaps. In sets, the subset relation is transitive (if A &sube; B and B &sube; C then A &sube; C) even though it is not called out as a separate axiom. Even in the naturals, the less-than order is transitive by construction. Chaining is <em>everywhere</em>. It may be the most fundamental structural property in all of mathematics.</p>
+
+    <h3>A New Category of Axiom: The Relation Axiom</h3>
+    <p>We previously saw existence axioms (seeds), construction axioms (generators), guardian axioms (preventing pathology), and symmetry axioms (inverses). Order introduces a fifth kind: <em>relation axioms</em>. These do not build objects or constrain operations &mdash; they constrain how objects <em>compare</em>. The three order axioms are pure relationship rules. This expands our vocabulary for classifying axioms.</p>
+
+    <div class="meta-axiom-box">
+      <span class="meta-axiom-label">Proposed Meta-Axiom M5</span>
+      <p>Every axiom system embeds some form of transitivity: the principle that chains of relationships or operations compose consistently.</p>
+    </div>
+    <div class="meta-axiom-box">
+      <span class="meta-axiom-label">Axiom Classification (growing)</span>
+      <p>Existence (seeds) &middot; Construction (generators) &middot; Guardian (preventing pathology) &middot; Symmetry (inverses/mirrors) &middot; Relation (how things compare)</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     05. TOPOLOGY
+     ============================================================ -->
+<section class="math-section" id="topology" data-color="topology">
+  <div class="section-header">
+    <span class="section-number">05</span>
+    <h2>Topology</h2>
+  </div>
+
+  <p class="one-liner">Topology is the study of properties that survive stretching and bending &mdash; defined not by distance, but by which sets count as &ldquo;open.&rdquo;</p>
+
+  <blockquote class="uncomfortable-question">
+    You know what &ldquo;nearby&rdquo; means on a number line. You know what &ldquo;continuous&rdquo; means for a function. But topology defines both of these concepts without ever mentioning distance. How can you talk about closeness without measuring anything?
+  </blockquote>
+
+  <div class="axioms-block">
+    <h3>The Axioms (Topological Space)</h3>
+    <ol class="axiom-list">
+      <li class="axiom"><span class="axiom-name">Empty and Full:</span> The empty set and the entire set are both open.</li>
+      <li class="axiom"><span class="axiom-name">Arbitrary Unions:</span> The union of any collection of open sets (even infinitely many) is open.</li>
+      <li class="axiom"><span class="axiom-name">Finite Intersections:</span> The intersection of any finite number of open sets is open.</li>
+    </ol>
+  </div>
+
+  <div class="explanation">
+    <p>Topology starts with a set of points and then declares which subsets of that set count as &ldquo;open.&rdquo; That declaration &mdash; the collection of open sets &mdash; is called a <em>topology</em> on the set. The axioms do not tell you what &ldquo;open&rdquo; means in everyday language. Instead, they tell you what operations preserve openness: you can take the union of as many open sets as you want (even infinitely many) and the result is still open, and you can take the intersection of finitely many open sets and the result is still open. &ldquo;Open&rdquo; is not defined by content; it is defined by behavior under union and intersection. This is a fundamentally different style of axiomatization from everything before: the axioms constrain a <em>collection of subsets</em>, not individual elements or operations.</p>
+
+    <p>The asymmetry between unions and intersections is deliberate and important. Arbitrary unions are open, but only <em>finite</em> intersections are guaranteed to be open. Why? Consider the real number line. The open interval (-1/n, 1/n) is open for every positive integer n. Each one is a neighborhood of zero. But their infinite intersection &mdash; the set of points that lie in <em>all</em> of these intervals &mdash; is just the single point {0}, which is not open. If infinite intersections of open sets were open, then single points would be open, and the entire topological structure would collapse to something trivial (the &ldquo;discrete topology&rdquo; where every subset is open). The finiteness restriction on intersections preserves the interesting structure. This is another guardian principle at work: the axiom system carefully limits one operation to prevent collapse.</p>
+
+    <p>A <em>closed set</em> is the complement of an open set &mdash; it is what remains when you remove an open set from the whole space. A set can be both open and closed (called &ldquo;clopen&rdquo;), neither open nor closed, or one but not the other. The empty set and the full space are always both. In a connected space like the real line, those are the <em>only</em> clopen sets. The concept of &ldquo;continuous function&rdquo; in topology is defined purely in terms of open sets: a function is continuous if the pre-image of every open set is open. No epsilons, no deltas, no distances. This is the power of topology: it strips away everything quantitative and keeps only the structural relationships between open sets. It is the opposite of metric spaces (which we will see later), where everything is measured precisely. Topology says: the shape of &ldquo;closeness&rdquo; matters; the exact distances do not.</p>
+  </div>
+
+  <div class="visualization-container" id="viz-topology">
+    <p class="viz-label">Interactive: Open Sets on the Real Line</p>
+    <div class="viz-canvas-wrap" style="height:340px;"></div>
+    <div class="viz-controls">
+      <button class="active" data-mode="both">Show U and V</button>
+      <button data-mode="union">Union (U &cup; V)</button>
+      <button data-mode="intersection">Intersection (U &cap; V)</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     META-AXIOM PATTERNS IV
+     ============================================================ -->
+<section class="meta-section" id="meta-4">
+  <div class="meta-header">
+    <h2>Meta-Axiom Patterns <span class="meta-count">(IV of IX)</span></h2>
+    <p class="meta-subtitle">Topology jumped a level. The axioms talk about <em>collections</em> of sets, not individual elements.</p>
+  </div>
+  <div class="systems-seen">
+    <span class="sys-tag seen">Sets</span>
+    <span class="sys-tag seen">Naturals</span>
+    <span class="sys-tag seen">Groups</span>
+    <span class="sys-tag seen">Order</span>
+    <span class="sys-tag seen">Topology</span>
+    <span class="sys-tag">Fields</span>
+    <span class="sys-tag">Vectors</span>
+    <span class="sys-tag">Metrics</span>
+    <span class="sys-tag">Probability</span>
+    <span class="sys-tag">Categories</span>
+  </div>
+  <div class="meta-content">
+    <h3>Levels of Abstraction</h3>
+    <p>We are seeing a pattern of escalating abstraction. Sets talk about elements. Groups talk about operations on elements. Order talks about relations between elements. And now topology talks about <em>collections of subsets of elements</em> &mdash; it is axiomatizing a family of sets, not the sets themselves. Each new system climbs one rung up the abstraction ladder. The axioms operate at a higher level, and the objects of study become more complex: not &ldquo;what is in the bag,&rdquo; but &ldquo;what bags are allowed.&rdquo;</p>
+
+    <h3>Controlled Infinity</h3>
+    <p>Topology introduced a sharp distinction: arbitrary (possibly infinite) unions versus only finite intersections. This controlled treatment of infinity echoes what we saw earlier. The Axiom of Infinity in set theory carefully introduces one infinite set. Peano's induction axiom gives you access to infinity one step at a time. And now topology says: infinite unions are safe, but infinite intersections are dangerous. Every axiom system treats infinity as a loaded weapon &mdash; useful but needing a safety catch. The safety catch varies, but the caution is universal.</p>
+
+    <div class="meta-axiom-box">
+      <span class="meta-axiom-label">Proposed Meta-Axiom M6</span>
+      <p>Axiom systems form a hierarchy of abstraction levels. As mathematics advances, axioms increasingly govern collections of objects rather than individual objects.</p>
+    </div>
+    <div class="meta-axiom-box">
+      <span class="meta-axiom-label">Proposed Meta-Axiom M7</span>
+      <p>Every axiom system treats infinity with controlled caution &mdash; admitting it where productive but restricting it where it would cause collapse.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     06. FIELDS AND REAL NUMBERS
+     ============================================================ -->
+<section class="math-section" id="fields" data-color="fields">
+  <div class="section-header">
+    <span class="section-number">06</span>
+    <h2>Fields &amp; Real Numbers</h2>
+  </div>
+
+  <p class="one-liner">A field is a set with two operations &mdash; addition and multiplication &mdash; where both are reversible, and the real numbers are the unique field that fills every gap on the number line.</p>
+
+  <blockquote class="uncomfortable-question">
+    You use real numbers constantly. But the rationals are already dense &mdash; between any two rationals, there is another rational. Every decimal you can actually write down is rational. So where exactly are the irrationals? Can you point to one on the number line, or are you taking their existence on faith?
+  </blockquote>
+
+  <div class="axioms-block">
+    <h3>The Axioms (Complete Ordered Field)</h3>
+    <ol class="axiom-list">
+      <li class="axiom"><span class="axiom-name">Additive group:</span> (&#8477;, +) is an abelian group with identity 0.</li>
+      <li class="axiom"><span class="axiom-name">Multiplicative group:</span> (&#8477; &setminus; {0}, &times;) is an abelian group with identity 1.</li>
+      <li class="axiom"><span class="axiom-name">Distributivity:</span> a &times; (b + c) = a &times; b + a &times; c for all a, b, c.</li>
+      <li class="axiom"><span class="axiom-name">Order compatibility:</span> If a &lt; b, then a + c &lt; b + c. If a &lt; b and c &gt; 0, then ac &lt; bc.</li>
+      <li class="axiom"><span class="axiom-name">Completeness:</span> Every non-empty set of reals that has an upper bound has a least upper bound (supremum) in &#8477;.</li>
+    </ol>
+  </div>
+
+  <div class="explanation">
+    <p>A field is two groups welded together. The first group is (&#8477;, +) &mdash; the real numbers under addition. The second is (&#8477; without zero, &times;) &mdash; the non-zero reals under multiplication. Each group brings its own identity (0 for addition, 1 for multiplication) and its own inverses (negatives for addition, reciprocals for multiplication). The weld that holds them together is <em>distributivity</em>: multiplication distributes over addition. Without distributivity, the two operations would be independent, unrelated systems coexisting on the same set. Distributivity is a <em>bridge axiom</em> &mdash; it connects two structures into something greater than their sum. This is fundamentally different from a group, which has only one operation. A field is the first <em>multi-operation</em> system in our tour.</p>
+
+    <p>The rational numbers (fractions) satisfy all the field axioms plus the order axioms. They form an ordered field. So what makes the real numbers special? The completeness axiom. It says: if you have a set of real numbers that does not go off to infinity (it has an upper bound), then there is a smallest number that is at least as big as everything in the set (the least upper bound, or supremum). The rationals do <em>not</em> satisfy this. Consider the set of all rationals whose square is less than 2. This set is bounded above (by 2, say) but it has no rational least upper bound, because the square root of 2 is irrational. The rationals have a &ldquo;gap&rdquo; where &radic;2 should be. The completeness axiom fills every such gap. It is a single axiom that transforms the rational numbers (which are riddled with invisible holes) into the real numbers (which are gapless).</p>
+
+    <p>The real numbers are the <em>unique</em> complete ordered field, up to relabeling. This is a remarkable fact: the thirteen axioms above pin down the reals exactly. No other structure satisfies them all. Contrast this with groups: there are infinitely many groups (cyclic groups, symmetric groups, matrix groups, &hellip;). The field axioms plus order plus completeness are so constraining that only one structure survives. This is the tension in axiom systems: fewer axioms allow more models (more flexibility, more examples) while more axioms narrow the possibilities (more precision, fewer models). The real numbers sit at the extreme end &mdash; a single model, completely determined.</p>
+  </div>
+
+  <div class="visualization-container" id="viz-fields">
+    <p class="viz-label">Interactive: The Rational Gap at &radic;2</p>
+    <div class="viz-canvas-wrap" style="height:320px;"></div>
+    <div class="viz-controls">
+      <button data-action="zoom-in">Zoom In</button>
+      <button data-action="zoom-out">Zoom Out</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     META-AXIOM PATTERNS V
+     ============================================================ -->
+<section class="meta-section" id="meta-5">
+  <div class="meta-header">
+    <h2>Meta-Axiom Patterns <span class="meta-count">(V of IX)</span></h2>
+    <p class="meta-subtitle">Fields are the first hybrid: two simpler systems joined by a bridge axiom.</p>
+  </div>
+  <div class="systems-seen">
+    <span class="sys-tag seen">Sets</span>
+    <span class="sys-tag seen">Naturals</span>
+    <span class="sys-tag seen">Groups</span>
+    <span class="sys-tag seen">Order</span>
+    <span class="sys-tag seen">Topology</span>
+    <span class="sys-tag seen">Fields</span>
+    <span class="sys-tag">Vectors</span>
+    <span class="sys-tag">Metrics</span>
+    <span class="sys-tag">Probability</span>
+    <span class="sys-tag">Categories</span>
+  </div>
+  <div class="meta-content">
+    <h3>Bridge Axioms</h3>
+    <p>Distributivity is a new kind of axiom. It does not live inside either the additive group or the multiplicative group. It lives <em>between</em> them, relating one operation to the other. This is a <em>bridge axiom</em> &mdash; an axiom whose purpose is to connect two otherwise independent structures. Similarly, the completeness axiom bridges the algebraic structure (the field operations) with the order structure (the &le; relation). Completeness is not an algebraic axiom and not an order axiom; it spans both worlds. The most powerful axiom in a system is often the bridge.</p>
+
+    <h3>Axiom Count vs. Model Count</h3>
+    <p>Here is a striking inverse relationship. Groups have 4 axioms and infinitely many models (Z, Z/nZ, S_n, matrix groups, &hellip;). The real numbers have 13+ axioms and exactly <em>one</em> model. More axioms means fewer models. Fewer axioms means more freedom. This is a deep pattern: axioms are constraints, and each constraint eliminates possibilities. An axiom system with zero constraints admits everything; an axiom system with many constraints admits almost nothing. The art of axiomatization is choosing the right constraints to capture the right amount of structure.</p>
+
+    <div class="meta-axiom-box">
+      <span class="meta-axiom-label">Proposed Meta-Axiom M8</span>
+      <p>The richest mathematical systems are built by combining simpler systems via bridge axioms that connect previously independent structures.</p>
+    </div>
+    <div class="meta-axiom-box">
+      <span class="meta-axiom-label">Proposed Meta-Axiom M9</span>
+      <p>The number of axioms in a system is inversely related to the number of structures satisfying those axioms. More constraints, fewer models.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     07. VECTOR SPACES
+     ============================================================ -->
+<section class="math-section" id="vector-spaces" data-color="vectors">
+  <div class="section-header">
+    <span class="section-number">07</span>
+    <h2>Vector Spaces</h2>
+  </div>
+
+  <p class="one-liner">A vector space is a set of objects (vectors) that can be added together and scaled by numbers from a field, following rules that make these operations compatible.</p>
+
+  <blockquote class="uncomfortable-question">
+    In gradient descent, you step in the direction of steepest descent. That step is a vector. But what <em>makes</em> something a vector? It is not &ldquo;an arrow&rdquo; &mdash; that is a picture, not a definition. If I told you that polynomials of degree at most 3 form a vector space, would that feel wrong? Why?
+  </blockquote>
+
+  <div class="axioms-block">
+    <h3>The Axioms</h3>
+    <ol class="axiom-list">
+      <li class="axiom"><span class="axiom-name">Additive closure:</span> u + v is in V for all u, v in V.</li>
+      <li class="axiom"><span class="axiom-name">Additive commutativity:</span> u + v = v + u.</li>
+      <li class="axiom"><span class="axiom-name">Additive associativity:</span> (u + v) + w = u + (v + w).</li>
+      <li class="axiom"><span class="axiom-name">Additive identity:</span> There exists 0 in V such that v + 0 = v.</li>
+      <li class="axiom"><span class="axiom-name">Additive inverse:</span> For each v, there exists -v such that v + (-v) = 0.</li>
+      <li class="axiom"><span class="axiom-name">Scalar closure:</span> cv is in V for all scalars c and vectors v.</li>
+      <li class="axiom"><span class="axiom-name">Scalar identity:</span> 1 &middot; v = v.</li>
+      <li class="axiom"><span class="axiom-name">Scalar compatibility:</span> a(bv) = (ab)v.</li>
+      <li class="axiom"><span class="axiom-name">Distributivity over vectors:</span> a(u + v) = au + av.</li>
+      <li class="axiom"><span class="axiom-name">Distributivity over scalars:</span> (a + b)v = av + bv.</li>
+    </ol>
+  </div>
+
+  <div class="explanation">
+    <p>A vector space is two things interacting: an abelian group (the vectors, under addition &mdash; axioms 1 through 5) and a field (the scalars, which are numbers you multiply vectors by). Axioms 6 through 10 govern how these two things interact. Notice that the vector space axioms do not define what a vector <em>is</em> &mdash; they only define what you can <em>do</em> with vectors (add them, scale them) and what rules those operations must follow. A vector could be an arrow in 2D space, a column of numbers, a polynomial, a function, or a matrix. If it obeys the ten axioms, it is a vector in a vector space. The definition is radically inclusive.</p>
+
+    <p>The concept of <em>linear independence</em> arises directly from these axioms. Vectors v1, v2, &hellip;, vn are linearly independent if no non-trivial combination of them produces the zero vector &mdash; that is, c1v1 + c2v2 + &hellip; + cnvn = 0 implies all the c&rsquo;s are zero. A <em>basis</em> is a maximal linearly independent set: it spans the whole space and contains no redundancy. The <em>dimension</em> of the space is the number of vectors in any basis (all bases have the same size &mdash; a theorem, not an axiom). This is the machinery behind gradient descent in machine learning: the gradient is a vector in a high-dimensional vector space of parameters, and each step is a scaled version of that vector subtracted from the current position.</p>
+
+    <p>Vector spaces differ from groups in a key way: they are <em>parametric</em>. A group is self-contained &mdash; its axioms only reference elements of the group itself. A vector space depends on an external structure &mdash; the scalar field. Change the field and you change the vector space. Real vector spaces (scalars from &#8477;) and complex vector spaces (scalars from &#8450;) have different properties even when the vectors &ldquo;look&rdquo; the same. This parametric dependence is new. The vector space &ldquo;imports&rdquo; the field the way a software library imports its dependencies. This is the first explicitly <em>layered</em> axiom system we have seen: you must first have a field, then you build a vector space on top of it.</p>
+  </div>
+
+  <div class="visualization-container" id="viz-vectors">
+    <p class="viz-label">Interactive: Span and Basis Explorer</p>
+    <div class="viz-canvas-wrap" style="height:400px;"></div>
+    <div class="viz-controls">
+      <label>Scalar a: <input type="range" data-param="a" min="-2" max="2" step="0.1" value="1"></label>
+      <label>Scalar b: <input type="range" data-param="b" min="-2" max="2" step="0.1" value="1"></label>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     META-AXIOM PATTERNS VI
+     ============================================================ -->
+<section class="meta-section" id="meta-6">
+  <div class="meta-header">
+    <h2>Meta-Axiom Patterns <span class="meta-count">(VI of IX)</span></h2>
+    <p class="meta-subtitle">Vector spaces revealed that axiom systems have dependencies.</p>
+  </div>
+  <div class="systems-seen">
+    <span class="sys-tag seen">Sets</span>
+    <span class="sys-tag seen">Naturals</span>
+    <span class="sys-tag seen">Groups</span>
+    <span class="sys-tag seen">Order</span>
+    <span class="sys-tag seen">Topology</span>
+    <span class="sys-tag seen">Fields</span>
+    <span class="sys-tag seen">Vectors</span>
+    <span class="sys-tag">Metrics</span>
+    <span class="sys-tag">Probability</span>
+    <span class="sys-tag">Categories</span>
+  </div>
+  <div class="meta-content">
+    <h3>Axiom Systems as a Dependency Graph</h3>
+    <p>Vector spaces depend on fields. Fields depend on groups (twice). Groups depend on sets. Sets depend on logic. This is not a ladder &mdash; it is a directed graph. And the edges are not optional: you cannot define a vector space without first having a field, any more than you can write a Python script that imports a library that does not exist. The dependency graph of mathematics has a shape, and that shape is itself a mathematical object.</p>
+
+    <h3>The Pattern of Two Distributivities</h3>
+    <p>Vector spaces have two distributivity axioms: one distributing scalars over vector addition, one distributing scalar addition over vectors. Fields had one distributivity axiom. This pattern &mdash; bridge axioms multiplying as systems combine &mdash; suggests that the number of bridge axioms grows with the number of interacting structures. A system with n interacting components needs roughly one bridge axiom for each pair of components. Bridge axioms are the mortar between bricks.</p>
+
+    <div class="meta-axiom-box">
+      <span class="meta-axiom-label">Proposed Meta-Axiom M10</span>
+      <p>Axiom systems form a dependency graph. Each system imports prerequisites, and the graph's structure mirrors the logical architecture of mathematics itself.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     08. METRIC SPACES
+     ============================================================ -->
+<section class="math-section" id="metric-spaces" data-color="metric">
+  <div class="section-header">
+    <span class="section-number">08</span>
+    <h2>Metric Spaces</h2>
+  </div>
+
+  <p class="one-liner">A metric space is a set equipped with a distance function that tells you how far apart any two points are.</p>
+
+  <blockquote class="uncomfortable-question">
+    You have computed Euclidean distances many times. But the Manhattan distance between two points in a city grid is also a valid metric &mdash; it satisfies the same axioms. Both are &ldquo;distance.&rdquo; If the axioms allow both, which one is <em>real</em> distance? Or is that question meaningless?
+  </blockquote>
+
+  <div class="axioms-block">
+    <h3>The Axioms</h3>
+    <ol class="axiom-list">
+      <li class="axiom"><span class="axiom-name">Non-negativity:</span> d(x, y) &ge; 0 for all x, y.</li>
+      <li class="axiom"><span class="axiom-name">Identity of indiscernibles:</span> d(x, y) = 0 if and only if x = y.</li>
+      <li class="axiom"><span class="axiom-name">Symmetry:</span> d(x, y) = d(y, x).</li>
+      <li class="axiom"><span class="axiom-name">Triangle inequality:</span> d(x, z) &le; d(x, y) + d(y, z).</li>
+    </ol>
+  </div>
+
+  <div class="explanation">
+    <p>A metric space takes the qualitative idea of &ldquo;closeness&rdquo; from topology and makes it quantitative. Instead of merely declaring which sets are open, a metric space assigns a number &mdash; the distance &mdash; to every pair of points. The four axioms capture what we intuitively expect from distance: it is never negative, it is zero only when comparing a point to itself, it is the same in both directions, and a detour is never shorter than the direct route (the triangle inequality). These axioms are remarkably lean. They say nothing about dimensions, coordinates, angles, or geometry. They only govern a function d that eats two points and returns a non-negative number.</p>
+
+    <p>The triangle inequality is the most structurally interesting axiom. It says d(x, z) &le; d(x, y) + d(y, z) &mdash; the direct distance from x to z is at most the distance through an intermediate point y. This is an <em>anti-shortcut axiom</em>: it guarantees that no detour beats the direct path. This echoes transitivity from order theory (if a &le; b &le; c, the chain holds) and associativity from groups (intermediate steps do not change the outcome). All three are assertions that paths compose consistently. The triangle inequality is the quantitative version of what transitivity expresses qualitatively.</p>
+
+    <p>The power of this abstraction is that wildly different notions of &ldquo;distance&rdquo; all satisfy the same four axioms. The Euclidean metric measures straight-line distance &mdash; its &ldquo;circles&rdquo; are actual circles. The Manhattan metric (or taxicab metric) measures distance along a grid &mdash; its &ldquo;circles&rdquo; are diamonds. The Chebyshev metric takes the maximum coordinate difference &mdash; its &ldquo;circles&rdquo; are squares. The discrete metric says every distinct pair of points is distance 1 apart &mdash; its &ldquo;circles&rdquo; are either single points or the entire space. All of these are legitimate metric spaces. This is the axioms speaking: they are permissive enough to encompass all these interpretations but constraining enough (via the triangle inequality) to prevent nonsensical ones like a metric where the direct distance exceeds the sum of two indirect distances.</p>
+  </div>
+
+  <div class="visualization-container" id="viz-metric">
+    <p class="viz-label">Interactive: What Does a &ldquo;Circle&rdquo; Look Like?</p>
+    <div class="viz-canvas-wrap" style="height:400px;"></div>
+    <div class="viz-controls">
+      <select>
+        <option value="euclidean">Euclidean</option>
+        <option value="manhattan">Manhattan (Taxicab)</option>
+        <option value="chebyshev">Chebyshev (Max)</option>
+        <option value="discrete">Discrete</option>
+      </select>
+      <label>Radius: <input type="range" data-param="radius" min="20" max="180" value="120"></label>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     META-AXIOM PATTERNS VII
+     ============================================================ -->
+<section class="meta-section" id="meta-7">
+  <div class="meta-header">
+    <h2>Meta-Axiom Patterns <span class="meta-count">(VII of IX)</span></h2>
+    <p class="meta-subtitle">Metric spaces quantified what topology left qualitative.</p>
+  </div>
+  <div class="systems-seen">
+    <span class="sys-tag seen">Sets</span>
+    <span class="sys-tag seen">Naturals</span>
+    <span class="sys-tag seen">Groups</span>
+    <span class="sys-tag seen">Order</span>
+    <span class="sys-tag seen">Topology</span>
+    <span class="sys-tag seen">Fields</span>
+    <span class="sys-tag seen">Vectors</span>
+    <span class="sys-tag seen">Metrics</span>
+    <span class="sys-tag">Probability</span>
+    <span class="sys-tag">Categories</span>
+  </div>
+  <div class="meta-content">
+    <h3>Quantitative Meets Qualitative</h3>
+    <p>Topology and metric spaces are mirrors. Topology defines &ldquo;nearness&rdquo; without numbers. Metric spaces define it with numbers. But every metric space <em>generates</em> a topology: define the open sets to be those sets where every point has some ball of positive radius contained in the set. The qualitative (topology) arises from the quantitative (metric) by forgetting the specific distances and keeping only the shape of nearness. This is a recurring pattern: one system generates another by discarding information. The axioms of the generated system are weaker (fewer constraints) than the axioms of the generating system.</p>
+
+    <h3>The Anti-Shortcut Family</h3>
+    <p>The triangle inequality is a member of a growing family. Transitivity in order: the direct comparison is at least as strong as a chain. Associativity in groups: regrouping does not change the answer. The triangle inequality in metrics: the direct path is at most as long as any detour. All of these are <em>anti-shortcut axioms</em> &mdash; they assert that the direct route through the mathematical structure is never worse than an indirect one. This family may be the single most pervasive pattern across all axiom systems.</p>
+
+    <div class="meta-axiom-box">
+      <span class="meta-axiom-label">Proposed Meta-Axiom M11</span>
+      <p>Axiom systems come in quantitative/qualitative pairs. The quantitative system generates the qualitative one by forgetting numerical information, and the qualitative axioms are always a subset (in spirit) of the quantitative ones.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     09. PROBABILITY
+     ============================================================ -->
+<section class="math-section" id="probability" data-color="probability">
+  <div class="section-header">
+    <span class="section-number">09</span>
+    <h2>Probability</h2>
+  </div>
+
+  <p class="one-liner">Probability is a way of assigning a number between 0 and 1 to events, measuring how likely they are, in a way that respects unions and the total space.</p>
+
+  <blockquote class="uncomfortable-question">
+    You learned P(A or B) = P(A) + P(B) - P(A and B). You can compute it. But <em>why</em> does probability have to add up to 1? What would break if it did not? Andrey Kolmogorov <em>chose</em> three axioms. Could he have chosen different ones and gotten a different theory of chance?
+  </blockquote>
+
+  <div class="axioms-block">
+    <h3>The Axioms (Kolmogorov, 1933)</h3>
+    <ol class="axiom-list">
+      <li class="axiom"><span class="axiom-name">Non-negativity:</span> P(A) &ge; 0 for every event A.</li>
+      <li class="axiom"><span class="axiom-name">Unitarity:</span> P(&Omega;) = 1, where &Omega; is the entire sample space.</li>
+      <li class="axiom"><span class="axiom-name">Countable additivity:</span> For any countable sequence of mutually exclusive events A&#8321;, A&#8322;, &hellip;, the probability of their union equals the sum of their individual probabilities.</li>
+    </ol>
+  </div>
+
+  <div class="explanation">
+    <p>Kolmogorov&rsquo;s axioms are stunning in their economy: three axioms generate all of probability theory. A probability space consists of a sample space &Omega; (the set of all possible outcomes), a sigma-algebra (written &sigma;-algebra) of events (a collection of subsets of &Omega; that is closed under complement and countable union), and a probability function P that assigns numbers to events following the three axioms above. The sigma-algebra is a topological idea smuggled into probability: it specifies which subsets count as &ldquo;measurable events,&rdquo; much as a topology specifies which subsets count as &ldquo;open.&rdquo; This is not a coincidence &mdash; probability is a branch of measure theory, which is itself a quantification of topological ideas.</p>
+
+    <p>The normalization axiom &mdash; P(&Omega;) = 1 &mdash; is a <em>boundary axiom</em>. It pins one specific value: certainty is 1, and everything else scales relative to it. This is a new kind of axiom we have not seen before. Sets had no concept of a maximum. Groups cycle through all elements. Order can extend indefinitely. But probability has a ceiling. The non-negativity axiom provides a floor (0) and unitarity provides a ceiling (1). Together they define the output range of the probability function: [0, 1]. This bounded-output pattern is distinctive. It makes probability <em>normalized</em> &mdash; you can compare probabilities of events in entirely different experiments because they are all measured on the same scale.</p>
+
+    <p>The third axiom &mdash; countable additivity (also called &sigma;-additivity) &mdash; is the workhorse. It says that if events do not overlap, their probabilities add up cleanly. This is what makes probability &ldquo;work&rdquo; the way you expect: the probability of rolling a 1, 2, or 3 on a die equals the sum of the individual probabilities. Countable additivity extends this to infinite sequences of disjoint events, which is essential for continuous probability (where the sample space, like &#8477;, is uncountable). There are alternative axiom systems for probability &mdash; some use only <em>finite</em> additivity instead of countable additivity &mdash; but they produce a weaker theory that cannot handle many of the results you need for statistics and machine learning. Kolmogorov&rsquo;s choice of countable additivity was deliberate: it buys you the full power of analysis at the cost of slightly more structure.</p>
+  </div>
+
+  <div class="visualization-container" id="viz-probability">
+    <p class="viz-label">Interactive: Sample Space (Two Dice)</p>
+    <div class="viz-canvas-wrap" style="min-height:300px;"></div>
+    <div class="viz-controls">
+      <button data-action="sum7">Show &ldquo;Sum = 7&rdquo;</button>
+      <button data-action="doubles">Show Doubles</button>
+      <button data-action="clear">Clear</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     META-AXIOM PATTERNS VIII
+     ============================================================ -->
+<section class="meta-section" id="meta-8">
+  <div class="meta-header">
+    <h2>Meta-Axiom Patterns <span class="meta-count">(VIII of IX)</span></h2>
+    <p class="meta-subtitle">Three axioms produced all of probability. What does economy buy?</p>
+  </div>
+  <div class="systems-seen">
+    <span class="sys-tag seen">Sets</span>
+    <span class="sys-tag seen">Naturals</span>
+    <span class="sys-tag seen">Groups</span>
+    <span class="sys-tag seen">Order</span>
+    <span class="sys-tag seen">Topology</span>
+    <span class="sys-tag seen">Fields</span>
+    <span class="sys-tag seen">Vectors</span>
+    <span class="sys-tag seen">Metrics</span>
+    <span class="sys-tag seen">Probability</span>
+    <span class="sys-tag">Categories</span>
+  </div>
+  <div class="meta-content">
+    <h3>Type Signatures of Axiom Systems</h3>
+    <p>Every axiom system we have seen implicitly defines a &ldquo;type signature&rdquo; for its primary function &mdash; the kind of output it produces. Group operations return group elements (same type in, same type out). Order relations return true/false (a comparison). Metric distance functions return non-negative real numbers [0, &infin;). Probability functions return values in [0, 1]. Topology does not return numbers at all &mdash; it returns membership verdicts (is this set open or not?). These output types are structural choices that shape everything about how the system works. A bounded output (probability) feels utterly different from an unbounded output (metrics), which feels different from a boolean output (order, topology).</p>
+
+    <h3>The Power of Minimal Axioms</h3>
+    <p>Probability&rsquo;s three axioms are the fewest we have seen for a system of comparable power. Groups have four. Topology has three. Order has three. Metrics have four. The real numbers have thirteen. There is no strict rule here, but a tendency: the fewer axioms a system has, the more broadly it applies. Probability applies to dice, stock markets, quantum mechanics, and machine learning &mdash; anywhere uncertainty lives. The real numbers apply to exactly one structure. Economy of axioms correlates with universality of application.</p>
+
+    <div class="meta-axiom-box">
+      <span class="meta-axiom-label">Proposed Meta-Axiom M12</span>
+      <p>Every axiom system has a type signature: the kind of output its primary operations produce. This signature (elements, booleans, bounded reals, unbounded reals) shapes the system's character.</p>
+    </div>
+    <div class="meta-axiom-box">
+      <span class="meta-axiom-label">Proposed Meta-Axiom M13</span>
+      <p>The fewer axioms a system has, the wider the class of structures it describes. Minimal axioms maximize applicability.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     10. CATEGORY THEORY
+     ============================================================ -->
+<section class="math-section" id="category-theory" data-color="category">
+  <div class="section-header">
+    <span class="section-number">10</span>
+    <h2>Category Theory</h2>
+  </div>
+
+  <p class="one-liner">Category theory studies mathematical structures by focusing not on what objects <em>are</em>, but on how they relate to each other through maps (morphisms).</p>
+
+  <blockquote class="uncomfortable-question">
+    Every structure we have studied &mdash; sets, groups, vector spaces &mdash; has been about <em>what things are</em>. Category theory only cares about <em>how things relate</em>. It has no axioms about the objects themselves. Can you do mathematics if you refuse to look inside the objects?
+  </blockquote>
+
+  <div class="axioms-block">
+    <h3>The Axioms (Eilenberg &amp; Mac Lane, 1945)</h3>
+    <ol class="axiom-list">
+      <li class="axiom"><span class="axiom-name">Composition:</span> If f: A &rarr; B and g: B &rarr; C are morphisms, then there exists a morphism g &compfn; f: A &rarr; C (their composition).</li>
+      <li class="axiom"><span class="axiom-name">Associativity:</span> h &compfn; (g &compfn; f) = (h &compfn; g) &compfn; f whenever the compositions are defined.</li>
+      <li class="axiom"><span class="axiom-name">Identity:</span> For every object X, there exists a morphism id&#8339;: X &rarr; X such that f &compfn; id&#8339; = f and id&#8339; &compfn; g = g for all appropriate f and g.</li>
+    </ol>
+  </div>
+
+  <div class="explanation">
+    <p>Category theory has the fewest substantive axioms of any system we have studied: composition exists, composition is associative, and identity morphisms exist. That is it. No axioms about the objects at all &mdash; objects are opaque nodes with no internal structure visible to the axioms. The entire theory lives in the <em>arrows</em> (morphisms) between objects. A morphism could be a function between sets, a homomorphism between groups, a continuous map between topological spaces, or a linear transformation between vector spaces. The category axioms do not care. They only care that arrows compose and that composition behaves well. Samuel Eilenberg and Saunders Mac Lane introduced categories in 1945 not as an end in themselves, but to define <em>functors</em> (structure-preserving maps between categories) and <em>natural transformations</em> (structure-preserving maps between functors). The framework turned out to be far more fundamental than its creators anticipated.</p>
+
+    <p>The startling fact about category theory is that it can encode every other system we have studied. Sets and functions form a category (called <strong>Set</strong>). Groups and group homomorphisms form a category (called <strong>Grp</strong>). Topological spaces and continuous maps form a category (called <strong>Top</strong>). Vector spaces and linear maps form a category (called <strong>Vect</strong>). Even a single group can be viewed as a category with one object, where the elements of the group are the morphisms and the group operation is composition. A partial order is a category where there is at most one morphism between any two objects (the morphism exists if and only if one element is less than the other). Category theory is not just another branch of mathematics alongside the others &mdash; it is a language that can describe them all.</p>
+
+    <p>This is the terminus of our abstraction hierarchy. Sets talk about elements. Topology talks about collections of sets. Category theory talks about <em>entire mathematical systems and the maps between them</em>. It operates at the highest level we have seen. And its axioms &mdash; just associativity and identity &mdash; are the bare minimum for composition to make sense. This minimality is not a weakness; it is the source of the theory&rsquo;s universality. By assuming almost nothing, category theory applies almost everywhere. It is the logical endpoint of the meta-axiom pattern we have been tracking: as abstraction increases, axioms decrease, and applicability expands. Category theory pushes this to the limit &mdash; two axioms that say: arrows compose and composition is well-behaved. Everything else is a theorem.</p>
+  </div>
+
+  <div class="visualization-container" id="viz-category">
+    <p class="viz-label">Interactive: Composition in a Category</p>
+    <div class="viz-canvas-wrap" style="height:400px;"></div>
+    <div class="viz-controls">
+      <button data-action="compose">Compose g &compfn; f</button>
+      <button data-action="reset">Reset</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     META-AXIOM PATTERNS IX — GRAND SYNTHESIS
+     ============================================================ -->
+<section class="meta-section" id="meta-9">
+  <div class="meta-header">
+    <h2>Grand Synthesis <span class="meta-count">(IX of IX)</span></h2>
+    <p class="meta-subtitle">All ten systems seen. Time to consolidate.</p>
+  </div>
+  <div class="systems-seen">
+    <span class="sys-tag seen">Sets</span>
+    <span class="sys-tag seen">Naturals</span>
+    <span class="sys-tag seen">Groups</span>
+    <span class="sys-tag seen">Order</span>
+    <span class="sys-tag seen">Topology</span>
+    <span class="sys-tag seen">Fields</span>
+    <span class="sys-tag seen">Vectors</span>
+    <span class="sys-tag seen">Metrics</span>
+    <span class="sys-tag seen">Probability</span>
+    <span class="sys-tag seen">Categories</span>
+  </div>
+  <div class="meta-content">
+    <h3>Category Theory Swallowed Everything</h3>
+    <p>Category theory is not just another system in our list &mdash; it is a system that contains all the other systems as examples. Sets, groups, orders, topologies, vector spaces, metric spaces: each forms a category. The meta-axioms we have been building are, in hindsight, descriptions of patterns visible from the category-theoretic vantage point. Seeds and generators? Those are initial objects and free constructions in a category. Bridge axioms? Those are functors connecting one category to another. The dependency graph of axiom systems? That is a diagram in the category of categories.</p>
+
+    <h3>The Final Consolidation</h3>
+    <p>We proposed thirteen meta-axioms across nine interludes. Many of them are aspects of the same deeper patterns. Let us distill them into five:</p>
+
+    <div class="meta-axiom-box">
+      <span class="meta-axiom-label">Final Meta-Axiom &alpha;</span>
+      <p>Every axiom system declares at least one existence (a seed) and at least one construction rule (a generator), together ensuring the system is non-empty and growable.</p>
+    </div>
+    <div class="meta-axiom-box">
+      <span class="meta-axiom-label">Final Meta-Axiom &beta;</span>
+      <p>Every axiom system embeds a form of composability &mdash; transitivity, associativity, or the triangle inequality &mdash; ensuring that chains of relationships or operations have well-defined outcomes.</p>
+    </div>
+    <div class="meta-axiom-box">
+      <span class="meta-axiom-label">Final Meta-Axiom &gamma;</span>
+      <p>Rich axiom systems arise by combining simpler ones via bridge axioms that connect previously independent structures, and the number of bridges grows with the number of interacting components.</p>
+    </div>
+    <div class="meta-axiom-box">
+      <span class="meta-axiom-label">Final Meta-Axiom &delta;</span>
+      <p>Axiom count and model count are inversely related: more constraints yield fewer satisfying structures. The power of a system flows from the tension between constraint and freedom.</p>
+    </div>
+    <div class="meta-axiom-box">
+      <span class="meta-axiom-label">Final Meta-Axiom &epsilon;</span>
+      <p>Every axiom system can be represented as a category, with objects as the system's structures and morphisms as structure-preserving maps. The meta-axioms themselves are properties of functors between these categories.</p>
+    </div>
+
+    <h3>What These Meta-Axioms Predict</h3>
+    <p>If these five patterns are real regularities &mdash; not just retroactive storytelling &mdash; then they should predict what a <em>new</em> axiom system looks like. A novel mathematics should have a seed (an existence declaration), a composability axiom (some form of chaining), at least one bridge connecting independent structures, a type signature for its outputs, and a natural embedding into category theory. Can we build one?</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     INVENTING A NEW MATHEMATICS
+     ============================================================ -->
+<section class="finale-section" id="new-math" data-color="finale">
+  <h2>Inventing a New Mathematics</h2>
+
+  <p>We have traveled from sets to categories, and along the way extracted five meta-axioms that describe what axiom systems <em>tend to look like</em>. Now we put those patterns to work. We will invent a mathematical structure that (a) obeys all five meta-axioms, (b) is not simply a recombination of existing structures, and (c) formalizes something we noticed repeatedly but never axiomatized: the <em>layered</em> nature of mathematics itself.</p>
+
+  <h3>The Observation</h3>
+  <p>Throughout our journey, we kept climbing levels of abstraction. Sets contain elements. Topologies are collections of sets. Categories collect entire mathematical systems. And meta-axioms describe patterns across categories. This is not just pedagogy &mdash; it is a structural phenomenon. Mathematics is layered, and the layers interact. Elements sit inside sets; sets sit inside topologies; structures sit inside categories. At each layer, there are objects, and there are maps that lift objects to the next layer or project them back down. The rules governing these lifts and projections were never formally stated. Let us state them now.</p>
+
+  <h3>Stratified Spaces</h3>
+  <p>We define a <strong>stratified space</strong> as a structure consisting of layers (called strata), lift maps between adjacent layers, and a compatibility condition. Think of it as a mathematical high-rise: each floor has its own population of objects, and the elevators between floors follow specific rules.</p>
+
+  <div class="axioms-block">
+    <h3>The Axioms of Stratified Spaces</h3>
+    <ol class="axiom-list">
+      <li class="axiom"><span class="axiom-name">Strata Exist:</span> There is a sequence of collections L&#8320;, L&#8321;, L&#8322;, &hellip; called strata. L&#8320; is non-empty. <em>(Seed: Meta-Axiom &alpha;)</em></li>
+      <li class="axiom"><span class="axiom-name">Lift:</span> For each n, there is a map &uarr;: L&#8345; &rarr; L&#8345;&#8330;&#8321; called the lift. Every object on floor n can be sent to floor n+1. <em>(Generator: Meta-Axiom &alpha;)</em></li>
+      <li class="axiom"><span class="axiom-name">Shadow:</span> For each n &ge; 1, there is a map &darr;: L&#8345; &rarr; L&#8345;&#8331;&#8321; called the shadow. Every object on floor n casts a shadow on floor n&minus;1.</li>
+      <li class="axiom"><span class="axiom-name">Round-Trip:</span> &darr;(&uarr;(x)) = x for all x. Lifting and then shadowing returns you to where you started. <em>(Composability: Meta-Axiom &beta;)</em></li>
+      <li class="axiom"><span class="axiom-name">Idempotent Expansion:</span> &uarr;(&darr;(y)) has the same shadow as y. Shadowing and then lifting produces something whose shadow matches the original shadow. Formally: &darr;(&uarr;(&darr;(y))) = &darr;(y). <em>(Guardian: prevents collapsing strata)</em></li>
+      <li class="axiom"><span class="axiom-name">Stratum Composition:</span> Lifting twice from L&#8345; to L&#8345;&#8330;&#8322; is associative with lifting once to L&#8345;&#8330;&#8321; and then once more. In general, any path of lifts from L&#8345; to L&#8345;&#8330;&#8342; gives the same result regardless of which intermediate floors you stop at. <em>(Composability: Meta-Axiom &beta;)</em></li>
+      <li class="axiom"><span class="axiom-name">Bridge:</span> For objects x in L&#8345; and y in L&#8345;&#8330;&#8321;, there is a mixing operation x &#8904; y in L&#8345;&#8330;&#8321; that distributes over lift: &uarr;(x) &#8904; y = &uarr;(x &#8904; &darr;(y)) whenever &darr;(y) is defined. <em>(Bridge axiom: Meta-Axiom &gamma;)</em></li>
+    </ol>
+  </div>
+
+  <h3>Checking Against the Meta-Axioms</h3>
+  <p><strong>Meta-Axiom &alpha; (Seed + Generator):</strong> The seed is L&#8320; and the generator is the lift map &uarr;. From L&#8320;, repeated lifting populates every higher stratum.</p>
+  <p><strong>Meta-Axiom &beta; (Composability):</strong> Axioms 4 and 6 ensure that sequences of lifts and shadows compose consistently. Round-Trip guarantees that going up and coming back down is the identity &mdash; a direct analog of the inverse axiom in groups. Stratum Composition guarantees that multi-step lifts are associative &mdash; the direct analog of associativity.</p>
+  <p><strong>Meta-Axiom &gamma; (Bridge):</strong> Axiom 7 is the bridge between adjacent layers, connecting objects at different levels of abstraction via a mixing operation that respects the lift/shadow structure.</p>
+  <p><strong>Meta-Axiom &delta; (Constraint/Freedom):</strong> Stratified spaces have 7 axioms, placing them between groups (4) and fields (13) in constraint level. We predict multiple distinct models: finite stratified spaces (finitely many strata, finite sets at each level), type-theoretic stratified spaces (where L&#8345; = types of universe level n), and set-theoretic stratified spaces (where L&#8345; = sets of rank n in the cumulative hierarchy).</p>
+  <p><strong>Meta-Axiom &epsilon; (Category Embedding):</strong> Stratified spaces form a category where morphisms are families of maps between corresponding strata that commute with lift and shadow. This is structurally similar to the category of filtered objects in algebraic topology.</p>
+
+  <h3>What This Captures</h3>
+  <p>Stratified spaces formalize the &ldquo;Russian nesting doll&rdquo; quality of mathematics. In set theory, elements live in sets which live in classes. In type theory, terms live in types which live in universes. In topology, points live in open sets which live in topologies. In each case, there are natural lift and shadow operations, and they obey rules that look suspiciously like our seven axioms. Stratified spaces are the axiom system for the <em>act of climbing levels of abstraction itself</em>.</p>
+
+  <h3>A Concrete Example</h3>
+  <p>Let L&#8320; = {a, b, c} (three points). Let L&#8321; = the power set of L&#8320; = {&empty;, {a}, {b}, {c}, {a,b}, {a,c}, {b,c}, {a,b,c}}. The lift map sends each point to its singleton set: &uarr;(a) = {a}. The shadow map sends each set to &hellip; well, what? This is where the axioms bite. The round-trip axiom requires &darr;({a}) = a. For larger sets like {a,b}, the shadow should be some element of L&#8320;. If we define the shadow of a non-singleton as its &ldquo;first&rdquo; element (under some ordering), the axioms are satisfied. The mixing operation x &#8904; S could be &ldquo;add x to the set S&rdquo;: a &#8904; {b,c} = {a,b,c}. The bridge axiom then says &uarr;(a) &#8904; {b,c} = &uarr;(a &#8904; &darr;({b,c})) = &uarr;(a &#8904; b) = &uarr;({a,b}) &mdash; mixing at a higher level can be pulled down, mixed at a lower level, and lifted back up. This is a toy example, but it illustrates the flavor: stratified spaces are about what happens when you move information between levels of abstraction.</p>
+
+  <h3>Open Questions</h3>
+  <p>Is every category a stratified space? (Probably not &mdash; not every category has natural &ldquo;levels.&rdquo;) Is every stratified space a category? (Yes &mdash; by Meta-Axiom &epsilon;, it embeds into one.) What is the simplest non-trivial stratified space? What theorems follow from the seven axioms alone, without choosing a specific model? These are the questions that would launch a research program, if stratified spaces turned out to capture something genuinely new. They may not &mdash; they may turn out to be a disguised version of something already known (filtered objects, presheaves, or graded structures). But the point was not to discover new mathematics. It was to see whether the meta-axiom patterns, extracted by watching real axiom systems, could generate something coherent. They can.</p>
+
+</section>
+
+<!-- Footer -->
+<footer style="padding:4rem 0 2rem;border-top:1px solid var(--border);text-align:center;color:var(--text-muted);font-family:var(--font-heading);font-size:0.8rem;">
+  <p>Built as a study in axiom patterns. Source material and data from the research document <em>Mathematics and Their Axioms: A Comprehensive Inventory</em>.</p>
+</footer>
+
+</main>
+
+<script src="js/main.js"></script>
+<script src="js/visualizations.js"></script>
+</body>
+</html>
