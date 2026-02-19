@@ -692,7 +692,7 @@
         { a: 1, b: 4, color: 'violet' },
         { a: 3, b: 7, color: 'teal' }
       ];
-      this.mode = 'both'; // both, union, intersection
+      this.mode = 'union'; // union, intersection
       this.dragging = null;
 
       var self = this;
